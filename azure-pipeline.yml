@@ -6,7 +6,7 @@ pool:
 
 variables:
   adoProjectName: 'demo-project-name1'
-
+  adoOrganizationUri: 'https://dev.azure.com/scrutz'
 steps:
 - task: Bash@3
   inputs:
@@ -21,5 +21,5 @@ steps:
     scriptType: 'bash'
     scriptLocation: 'scriptPath'
     scriptPath: 'create-project.sh'
-    arguments: '$(adoProjectName)'
+    arguments: '$(adoProjectName) $(adoOrganizationUri)'
     
