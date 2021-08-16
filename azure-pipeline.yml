@@ -17,7 +17,7 @@ steps:
 - task: AzureCLI@2
   displayName: Azure CLI
   inputs:
-    azureSubscription: 'Demo Account'
+    azureSubscription: 'Demo Account MSDN'
     scriptType: 'bash'
     scriptLocation: 'scriptPath'
     scriptPath: 'create-project.sh'
