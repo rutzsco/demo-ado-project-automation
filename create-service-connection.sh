@@ -11,11 +11,15 @@ resourceGroupName=$3
 
 echo "adoProjectName: $adoProjectName"
 echo "adoOrganizationUri: $adoOrganizationUri"
-
+echo "resourceGroupName: $resourceGroupName"
 
 subscriptionId=$(az account show | jq -r '.id')
 subscriptionName=$(az account show | jq -r '.name')
 name= $adoProjectName + "-spn"
+
+echo "subscriptionId: $subscriptionId"
+echo "subscriptionName: $subscriptionName"
+echo "name: $name"
 
 response=$(az ad sp create-for-rbac -n $name --role contributor \
     --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName)
