@@ -13,15 +13,14 @@ steps:
     targetType: 'inline'
     script: |
       ls
-      
+
 - task: AzureCLI@2
   displayName: Azure CLI
   inputs:
-    azureSubscription: 'Demo Account MSDN'
+    azureSubscription: 'Demo Account'
     scriptType: 'bash'
-    scriptLocation: 'scriptPath'
-    scriptPath: 'create-project.sh'
-    arguments: '$(adoProjectName) $(adoOrganizationUri)'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'echo  $(System.AccessToken) | az devops login --organization https://dev.azure.com/contoso/'
 
 - task: AzureCLI@2
   displayName: Azure CLI
