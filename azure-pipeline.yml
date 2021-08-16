@@ -1,0 +1,25 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  adoProjectName: 'demo-project-name1'
+
+steps:
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      ls
+
+- task: AzureCLI@2
+  displayName: Azure CLI
+  inputs:
+    azureSubscription: 'Demo Account'
+    scriptType: 'bash'
+    scriptLocation: 'scriptPath'
+    scriptPath: 'create-project.sh'
+    arguments: '$(adoProjectName)'
+    
