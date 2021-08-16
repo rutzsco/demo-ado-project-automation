@@ -5,8 +5,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  adoProjectName: 'demo-project-name1'
+  adoProjectName: 'demo-project-name2'
   adoOrganizationUri: 'https://dev.azure.com/scrutz'
+  resourceGroupName: 'demo-project-rg'
 steps:
 - task: Bash@3
   inputs:
@@ -30,4 +31,12 @@ steps:
     scriptLocation: 'scriptPath'
     scriptPath: 'create-project.sh'
     arguments: '$(adoProjectName) $(adoOrganizationUri)'
+- task: AzureCLI@2
+  displayName: Azure CLI
+  inputs:
+    azureSubscription: 'Demo Account MSDN'
+    scriptType: 'bash'
+    scriptLocation: 'scriptPath'
+    scriptPath: 'create-service-connection.sh'
+    arguments: '$(adoProjectName) $(adoOrganizationUri) $(resourceGroupName)'
     
