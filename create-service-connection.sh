@@ -15,7 +15,7 @@ echo "resourceGroupName: $resourceGroupName"
 
 subscriptionId=$(az account show | jq -r '.id')
 subscriptionName=$(az account show | jq -r '.name')
-name= $adoProjectName + "-spn"
+name= "$adoProjectName-spn"
 
 echo "subscriptionId: $subscriptionId"
 echo "subscriptionName: $subscriptionName"
