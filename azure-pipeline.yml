@@ -9,6 +9,14 @@ variables:
   adoOrganizationUri: 'https://dev.azure.com/scrutz'
   resourceGroupName: 'demo-project-rg'
 steps:
+- task: JavaToolInstaller@0
+    inputs:
+      versionSpec: "11"
+      jdkArchitectureOption: x64
+      jdkSourceOption: LocalDirectory
+      jdkFile: "/builds/openjdk-11.0.2_linux-x64_bin.tar.gz"
+      jdkDestinationDirectory: "/builds/binaries/externals"
+      cleanDestinationDirectory: true
 - task: Bash@3
   inputs:
     targetType: 'inline'
