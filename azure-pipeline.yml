@@ -26,7 +26,7 @@ steps:
 
 - task: AzureCLI@2
   displayName: Azure CLI
-  enabled: false
+  enabled: true
   inputs:
     azureSubscription: 'Demo Account MSDN'
     scriptType: 'bash'
