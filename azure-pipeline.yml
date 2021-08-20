@@ -10,12 +10,6 @@ variables:
   resourceGroupName: 'demo-project-rg'
 steps:
 
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: '15'
-    jdkArchitectureOption: 'x64'
-    jdkSourceOption: 'PreInstalled'
-
 - task: Bash@3
   inputs:
     targetType: 'inline'
