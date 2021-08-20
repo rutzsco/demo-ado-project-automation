@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  adoProjectName: 'demo-project-name6'
+  adoProjectName: 'demo-project-name-1'
   adoOrganizationUri: 'https://dev.azure.com/scrutz'
   resourceGroupName: 'demo-project-rg'
 steps:
