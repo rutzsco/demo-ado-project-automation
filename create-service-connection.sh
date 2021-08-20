@@ -21,8 +21,10 @@ echo "subscriptionId: $subscriptionId"
 echo "subscriptionName: $subscriptionName"
 echo "name: $name"
 
-response=$(az ad sp create-for-rbac -n $name --role contributor \
-    --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName)
+echo "****************CREATING SPN***********************"
+response=$(az ad sp create-for-rbac -n $name --role contributor --scopes /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName)
+
+echo "SPN Response: $response"
 
 appId=$(echo $response | jq -r '.appId')
 tenantId=$(echo $response | jq -r '.tenant')
