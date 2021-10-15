@@ -10,17 +10,13 @@ variables:
   resourceGroupName: 'demo-project-rg'
 steps:
 
-- task: Bash@3
+- task: CmdLine@2
   inputs:
-    targetType: 'inline'
-    script: |
-      'curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash'
-
-- task: Bash@3
+    script: 'curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash'
+    
+- task: CmdLine@2
   inputs:
-    targetType: 'inline'
-    script: |
-      'echo  $(PAT) | az devops login --organization https://dev.azure.com/scrutz/'
+    script: 'echo  $(PAT) | az devops login --organization https://dev.azure.com/scrutz/'   
 
 - task: Bash@3
   inputs:
