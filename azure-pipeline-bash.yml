@@ -14,7 +14,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      ls
+      'curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash'
 
 - task: Bash@3
   inputs:
